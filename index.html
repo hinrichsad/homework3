@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Password Generator</h1>
+        </header>
+        <div class="card">
+            <div class="card-header">
+                <h2>Generate a Password</h2>
+                <form action="/action_page.php">
+                    <span>How many characters? <input type="number" id="length"></span><br><br>
+                    <input type="checkbox" id="ucLetters" name="UpperCaseLetters" checked>
+                    <label for="ucLetters"> UpperCase Letters</label><br>
+                    <input type="checkbox" id="lcLetters" name="LowerCaseLetters" checked>
+                    <label for="lcLetters"> LowerCase Letters</label><br>
+                    <input type="checkbox" id="specialChars" name="SpecialCharacters" checked>
+                    <label for="specialChars"> Special Characters</label><br>
+                    <input type="checkbox" id="nums" name="Numbers" checked>
+                    <label for="Nums"> Numbers</label><br><br>
+                </form>
+            </div>
+            <div class="card-body">
+                <textarea readonly id="securePassword" placeholder="Your Secure Password"
+                    aria-label="Generated Password"></textarea>
+            </div>
+            <div class="card-footer">
+                <button id="generate" class="btn">Generate Password</button>
+                <button onclick="copyTxt()" class="btn">Copy text</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
