@@ -1,10 +1,10 @@
 // Declaring our variables
     //4 matrixes are used so that they can be turned on or off
 
-var lowerLetters = [97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122];
-var upperLetters = [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90];
-var numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-var specialCharacters = [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
+var lowerLetters = [97, 122];
+var upperLetters = [65, 90];
+var numbers = [48, 57];
+var specialCharacters = [33, 47];
 
 
 
@@ -29,24 +29,27 @@ function writePassword() {
     //looping through each indevidual array (if checked) and pushing their values to an all encompasing array called 'randomCharacterarr' 
         //after several iterations, I discovered that using unicode was much easier than the individual characters
     if (ucLetters){
-        for(var i = upperLetters[0]; i <= upperLetters[25]; i++){
+        for(var i = upperLetters[0]; i <= upperLetters[1].last; i++){
             randomCharacterArr.push(i);
         }
     }
     if (lcLetters){
-        for(var i = lowerLetters[0]; i <= lowerLetters[25]; i++){
+        for(var i = lowerLetters[0]; i <= lowerLetters[1]; i++){
             randomCharacterArr.push(i);
         }
     }
     if (nums){
-        for(var i = numbers[0]; i <= numbers[9]; i++){
+        for(var i = numbers[0]; i <= numbers[1]; i++){
             randomCharacterArr.push(i);
         }
     }
     if (specialChars){
-        for(var i = specialCharacters[0]; i <= specialCharacters[14]; i++){
+        for(var i = specialCharacters[0]; i <= specialCharacters[1]; i++){
             randomCharacterArr.push(i);
         }
+    }
+    if(ucLetters == 0 && lcLetters == 0 && nums == 0 && specialChars == 0){
+        alert("Error: No character perameters selected");
     }
 
     //loops through the randomCharacterArr 'length' number of times, each time randomly selecting a character code and converting it to the corresponding character
@@ -78,5 +81,5 @@ function copyTxt() {
     /* Copy the text inside the text field */
     document.execCommand("copy");
 
-    alert("Copied the text: " + copyText.value);
+    alert("Copied Password: " + copyText.value);
   }
